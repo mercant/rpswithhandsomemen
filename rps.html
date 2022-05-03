@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: #032D38;
+                color: white;
+            }
+            h1{
+                text-align: center;
+            }
+            .viewpoint{
+                text-align: center;
+            }
+            button{
+                width: 250px;
+                height: 100px;
+                font-size: 40px;
+            }
+            .result{
+                text-align: center;
+            }
+            #result{
+                font-size: 100px;
+            }
+            #rpsComputer{
+                font-size: 25px;
+            }
+            #alienscore{
+                font-size: 50px;
+            }
+            #youscore{
+                font-size: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>ROCK PAPER SCISSORS WITH AN ALIEN</h1>
+        </div>
+
+        <div class="viewpoint">
+            <div class="buttons">
+                <button onclick="rock()">ROCK</button> <button onclick="paper()">PAPER</button> <button onclick="scissors()">SCISSORS</button>
+            </div>
+        </div>
+
+        <div class="result">
+            <p id="result">RESULT</p>
+            <p id="rpsComputer">RPS?</p>
+            <h1 id="alienscore">ALIEN : 0</h1>
+            <h1 id="youscore">YOU : 0</h1>
+        </div>
+
+        <script>
+            var randomSelected = ["rock","paper","scissors"];
+            var RandomIndex = 0;
+            var alertaudio = new Audio("alertsound.mp3");
+            var alien = 0;
+            var you = 0;
+
+            function rock(){
+                alertaudio.play();
+                RandomIndex = Math.floor(Math.random() * 3);
+                document.getElementById("rpsComputer").innerHTML = "The Alien played " + randomSelected[RandomIndex];
+
+                if  (RandomIndex == 0){
+                    document.getElementById("result").innerHTML = "SAME";
+                }
+                else if (RandomIndex == 1){
+                    document.getElementById("result").innerHTML = "YOU LOSE";
+                    alien == alien++;
+                    document.getElementById("alienscore").innerHTML = "ALIEN : " + alien;
+                }
+                else{
+                    document.getElementById("result").innerHTML = "YOU WIN";
+                    you == you++
+                    document.getElementById("youscore").innerHTML = "YOU : " + you;
+                }
+
+            }
+            function paper(){
+                alertaudio.play();
+                RandomIndex = Math.floor(Math.random() * 3);
+                document.getElementById("rpsComputer").innerHTML = "The Alien played " + randomSelected[RandomIndex];
+                if  (RandomIndex == 0){
+                    document.getElementById("result").innerHTML = "YOU WIN";
+                    you == you++
+                    document.getElementById("youscore").innerHTML = "YOU : " + you;
+                }
+                else if (RandomIndex == 1){
+                    document.getElementById("result").innerHTML = "SAME";
+                }
+                else{
+                    document.getElementById("result").innerHTML = "YOU LOSE";
+                    alien == alien++;
+                    document.getElementById("alienscore").innerHTML = "ALIEN : " + alien;
+                }
+            }
+            function scissors(){
+                alertaudio.play();
+                RandomIndex = Math.floor(Math.random() * 3);
+                document.getElementById("rpsComputer").innerHTML = "The Alien played " + randomSelected[RandomIndex];
+                if  (RandomIndex == 0){
+                    document.getElementById("result").innerHTML = "YOU LOSE";
+                    alien == alien++;
+                    document.getElementById("alienscore").innerHTML = "ALIEN : " + alien;
+                }
+                else if (RandomIndex == 1){
+                    document.getElementById("result").innerHTML = "YOU WIN";
+                    you == you++
+                    document.getElementById("youscore").innerHTML = "YOU : " + you;
+                }
+                else{
+                    document.getElementById("result").innerHTML = "SAME";
+                }
+            }
+        </script>
+    </body>
+</html>
